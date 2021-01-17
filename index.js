@@ -3,7 +3,7 @@ const inquirer = require('inquirer');
 const fs = require('fs');
 const util = require('util');
 
-const writeFileAsync = util.promisify(fs.writeFile);
+const writeToFile = util.promisify(fs.writeFile);
 
 // TODO: Create an array of questions for user input
 const questions = () =>
@@ -61,9 +61,10 @@ const questions = () =>
     ]);
 
 const generateRM = (answers) =>
-`# Your Project Title
+`# ${answers.title}
 
 ## Description 
+${answers.description}
 
 ## Table of Contents (Optional)
 
@@ -75,37 +76,49 @@ const generateRM = (answers) =>
 
 ## Installation
 
+${answers.install}
+
 ## Usage 
+
+${answers.usage}
 
 ## Credits
 
+${answers.credits}
 
 ## License
 
+${answers.license}
 
 ---
 
 ## Badges
 
+${answers.badges}
+
 ## Features
+
+${answers.features}
 
 ## Contributing
 
+${answers.contribute}
 
 ## Tests
 
+${answers.tests}
 
 ---
 
 © 2020. All Rights Reserved.`;
 
 // TODO: Create a function to write README file
-promptUser().then((answers) => writeToFile('README.md', generateRM(answers)))
+questions().then((answers) => writeToFile('README.md', generateRM(answers)))
 .then(() => console.log('Successfully wrote to README.md'))
 .catch((err) => console.error(err));
 
 // TODO: Create a function to initialize app
-function init() { }
+// function init() { }
 
 // Function call to initialize app
-init();
+// init();
