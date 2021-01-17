@@ -25,6 +25,16 @@ const questions = () =>
         },
         {
             type: 'input',
+            name: 'screenshot',
+            message: 'Add a local path or link to a screenshot of you project.',
+        },
+        {
+            type: 'input',
+            name: 'screenshotalt',
+            message: 'Add alt text for your screenshot.',
+        },
+        {
+            type: 'input',
             name: 'usage',
             message: 'How do you use your project?',
         },
@@ -34,9 +44,10 @@ const questions = () =>
             message: 'List any other contributors to your project.',
         },
         {
-            type: 'input',
+            type: 'checkbox',
             name: 'license',
             message: 'Under what license is your project?',
+            choices: ['MIT License', 'GNU GPLv3 License'],
         },
         {
             type: 'input',
@@ -79,6 +90,8 @@ ${answers.description}
 ${answers.install}
 
 ## Usage 
+
+![${answers.screenshotalt}](${answers.screenshot})
 
 ${answers.usage}
 
