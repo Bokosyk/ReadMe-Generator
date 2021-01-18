@@ -47,11 +47,6 @@ const questions = () =>
         },
         {
             type: 'input',
-            name: 'badges',
-            message: 'What badges do you have?',
-        },
-        {
-            type: 'input',
             name: 'features',
             message: 'What features does your project have?',
         },
@@ -80,12 +75,12 @@ const questions = () =>
 // Generates the readme file with user input
 const generateRM = (answers) => {
 
-    const badge = renderLicenseBadge(answers.license)
-    const link = renderLicenseLink(answers.license)
-    const section = renderLicenseSection(answers.license)
+    const badge = renderLicenseBadge(answers.license);
+    const link = renderLicenseLink(answers.license);
+    const section = renderLicenseSection(answers.license);
 
- return  `# ${answers.title}
-${badge}${link}
+    return `# ${answers.title}
+${badge} Link: ${link}
 
 
 ## Description 
@@ -112,10 +107,6 @@ ${answers.usage}
 ${section}
 
 ---
-
-## Badges
-
-${answers.badges}
 
 ## Features
 
@@ -146,52 +137,81 @@ questions().then((answers) => writeToFile('README.md', generateRM(answers)))
     .then(() => console.log('Successfully wrote to README.md'))
     .catch((err) => console.error(err));
 
-// Exports
-// module.exports = index.js;
-
 
 // Function that returns a license badge based on which license is passed in
 // If there is no license, returns an empty string
 function renderLicenseBadge(license) {
     let finalString = "";
-    if (license = 'MIT License') {
-      finalString = "[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)]"
-      return finalString
+    if (license == "MIT License") {
+        finalString = "![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)"
+        return finalString
     }
-  
-    else if (license = 'GNU GPLv3 License') {
-      finalString = "[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)]" 
-      return finalString;
+
+    else if (license == "GNU GPLv3 License") {
+        finalString = "![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)"
+        return finalString
     }
-    
-      return finalString;
-    
-  }
-  
-  // TODO: Create a function that returns the license link
-  // If there is no license, return an empty string
-  function renderLicenseLink(license) {
+
+    return finalString;
+
+}
+
+// TODO: Create a function that returns the license link
+// If there is no license, return an empty string
+function renderLicenseLink(license) {
     let finalString = "";
-    if (license = 'MIT License') {
-      finalString = "(https://opensource.org/licenses/MIT)"
-      return finalString
+    if (license == 'MIT License') {
+        finalString = "https://opensource.org/licenses/MIT"
+        return finalString
     }
-  
-    else if (license = 'GNU GPLv3 License') {
-      finalString = "(https://www.gnu.org/licenses/gpl-3.0)"
-      return finalString;
+
+    else if (license == 'GNU GPLv3 License') {
+        finalString = "https://www.gnu.org/licenses/gpl-3.0"
+        return finalString;
     }
+
+    return finalString;
+
+}
+
+// TODO: Create a function that returns the license section of README
+// If there is no license, return an empty string
+function renderLicenseSection(license) {
+
+    if (license == 'MIT License') {
+        return `## License
+
+        Copyright (C) 2020  <name of author>
+        
+        Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+        
+        The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+        
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.`
+    }
+
+    else if (license = 'GNU GPlv3 License') {
+        return `## License
+        Copyright (C) 2020  <name of author>
+
+        This program is free software: you can redistribute it and/or modify
+        it under the terms of the GNU General Public License as published by
+        the Free Software Foundation, either version 3 of the License, or
+        (at your option) any later version.
     
-      return finalString;
-  
-   }
-  
-  // TODO: Create a function that returns the license section of README
-  // If there is no license, return an empty string
-  function renderLicenseSection(license) {
-    if (license === "NONE") {
+        This program is distributed in the hope that it will be useful,
+        but WITHOUT ANY WARRANTY; without even the implied warranty of
+        MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+        GNU General Public License for more details.
+    
+        You should have received a copy of the GNU General Public License
+        along with this program.  If not, see <https://www.gnu.org/licenses/>.
+        `
+    }
+
+    else if (license == "NONE") {
         return "";
     }
-    return `## License`
+    // return `## License`
     // ${badge}${link}
-   }
+}
