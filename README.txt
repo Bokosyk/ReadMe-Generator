@@ -1,9 +1,7 @@
-# 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-
+# ReadMe-Generator
 
 ## Description 
-
+An application that dynamically creates a README.md file template and allows the user to input their own content.
 
 ## Table of Contents (Optional)
 
@@ -24,6 +22,8 @@
 
 
 ## License
+
+
 
 ---
 
@@ -52,4 +52,4 @@ Email:
 
 ---
 
-© 2021. All Rights Reserved.
+© 2020. All Rights Reserved.
