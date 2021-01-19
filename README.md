@@ -19,7 +19,7 @@ Download or perform a git pull of the contents of this repository onto your loca
 
 ## Usage 
 
-![]()
+![Application Showcase](ReadMe Generator Showcase.gif)
 
 Open the files in a code editor of your choice. Open an integrated terminal, then run node index.js to begin to the process of creating a ReadMe file. The latest version of Node is recommended and you may need to have inquirer installed for the application to run.
 
