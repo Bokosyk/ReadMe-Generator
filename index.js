@@ -90,7 +90,7 @@ ${answers.description}
 
 * [Installation](#installation)
 * [Usage](#usage)
-* [Credits](#credits)
+* [Features](#features)
 * [License](#license)
 
 

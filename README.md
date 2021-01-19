@@ -9,7 +9,7 @@ An application that takes user input and generates a ReadMe.md file, using the i
 
 * [Installation](#installation)
 * [Usage](#usage)
-* [Credits](#credits)
+* [Features](#features)
 * [License](#license)
 
 
