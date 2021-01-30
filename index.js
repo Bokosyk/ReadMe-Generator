@@ -1,10 +1,26 @@
 // Packages needed for this application
 const inquirer = require('inquirer');
-const generateMarkdown = require('./utils/generateMarkdown') //Pulls code from generateMarkdown.js
+// const generateMarkdown = require('./utils/generateMarkdown') //Pulls code from generateMarkdown.js
+const logo = require("asciiart-logo");
 const fs = require('fs');
 const util = require('util');
 
 const writeToFile = util.promisify(fs.writeFile);
+
+
+//Stylized console logo
+function init() {
+
+    // Renders art logo
+    const logoText = logo ({name: "ReadMe Generator"}).render();
+    console.log(logoText)
+    
+    // runs function
+    
+
+}
+
+init();
 
 // An array of questions for user input
 const questions = () =>
