@@ -52,7 +52,6 @@ Leandro Parrado
 To reach me for any questions or concerns, see below.
 
 Github Link: https://github.com/Bokosyk
-Email: lparrado321@gmail.com
 
 ---
 
